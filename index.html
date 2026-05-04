@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atlas PWA — Sistema Muscular Aplicado</title>
+  <meta name="description" content="Roteiro profissional de sistema muscular aplicado à Educação Física com origem, inserção, ações, aplicações, fotos e PDF." />
+  <meta name="theme-color" content="#07111f" />
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="hero no-print">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div>
+        <p class="eyebrow">Educação Física • Peças Humanas • Offline</p>
+        <h1>Atlas PWA — Sistema Muscular Aplicado</h1>
+        <p class="subtitle">Roteiro completo com origem, inserção, ação, inervação, aplicação prática, perguntas de bancada, fotos por músculo e geração de PDF.</p>
+      </div>
+      <div class="actions">
+        <button id="btnInstall" class="btn primary">📲 Baixar app</button>
+        <button id="btnPdf" class="btn">📄 Gerar PDF</button>
+        <button id="btnExport" class="btn ghost">⬇️ Exportar dados</button>
+        <label class="btn ghost file-label">⬆️ Importar dados<input id="importFile" type="file" accept="application/json" hidden></label>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="toolbar no-print">
+      <input id="search" type="search" placeholder="Buscar músculo, movimento, exercício, região..." />
+      <select id="filterMember">
+        <option value="todos">Todos os membros</option>
+        <option value="superior">Membro superior</option>
+        <option value="inferior">Membro inferior</option>
+      </select>
+      <select id="filterRegion">
+        <option value="todas">Todas as regiões</option>
+      </select>
+    </section>
+
+    <section class="intro card print-section">
+      <h2>Como explicar o sistema muscular em aula prática</h2>
+      <div class="grid two">
+        <div>
+          <h3>Sequência didática</h3>
+          <ol>
+            <li><b>Localize</b> a região e a camada do músculo.</li>
+            <li><b>Mostre</b> origem, inserção e direção das fibras.</li>
+            <li><b>Deduza</b> a ação pela aproximação dos pontos ósseos.</li>
+            <li><b>Relacione</b> com exercício, esporte, postura ou lesão.</li>
+            <li><b>Peça ao aluno</b> para explicar agonista, antagonista e sinergistas.</li>
+          </ol>
+        </div>
+        <div>
+          <h3>Frase-chave para Educação Física</h3>
+          <p class="quote">“Não basta decorar o músculo. O aluno precisa compreender o que ele faz no movimento humano.”</p>
+          <p>Use sempre a cadeia: <b>músculo → articulação → movimento → exercício → aplicação clínica/desportiva</b>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="stats" class="stats no-print"></section>
+
+    <section id="muscleList" class="muscle-list"></section>
+  </main>
+
+  <template id="muscleTemplate">
+    <article class="muscle-card print-section">
+      <div class="card-head">
+        <div>
+          <span class="tag member"></span>
+          <span class="tag region"></span>
+          <h2 class="muscle-name"></h2>
+        </div>
+        <button class="btn small toggle no-print">Abrir</button>
+      </div>
+      <div class="card-body">
+        <div class="grid two">
+          <div class="info-box"><h3>Origem</h3><p class="origin"></p></div>
+          <div class="info-box"><h3>Inserção</h3><p class="insertion"></p></div>
+          <div class="info-box"><h3>Ações</h3><p class="actions-text"></p></div>
+          <div class="info-box"><h3>Inervação</h3><p class="innervation"></p></div>
+        </div>
+        <div class="info-box full"><h3>Aplicações práticas na Educação Física</h3><p class="application"></p></div>
+        <div class="info-box full"><h3>Como demonstrar na peça humana</h3><p class="demo"></p></div>
+        <div class="info-box full"><h3>Perguntas de bancada</h3><ul class="questions"></ul></div>
+
+        <div class="notes no-print">
+          <h3>Registro do aluno/professor</h3>
+          <textarea class="note" placeholder="Anote observações da peça, variações anatômicas, dúvidas, correlações com exercício..."></textarea>
+          <div class="photo-actions">
+            <label class="btn small">📷 Tirar fotos<input class="cameraInput" type="file" accept="image/*" capture="environment" multiple hidden></label>
+            <label class="btn small ghost">🖼️ Anexar imagem<input class="fileInput" type="file" accept="image/*" multiple hidden></label>
+            <button class="btn small danger clearPhotos">Limpar fotos</button>
+          </div>
+          <div class="gallery"></div>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <footer class="footer no-print">
+    <p>Feito para uso didático em laboratório de anatomia. Os dados ficam salvos no próprio navegador/dispositivo via IndexedDB.</p>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
