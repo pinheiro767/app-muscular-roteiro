@@ -1,5 +1,5 @@
 {
-  "name": "Atlas Sistema Muscular Aplicado",
+  "name": "Sistema Muscular Aplicado",
   "short_name": "Atlas Muscular",
   "description": "PWA offline para ensino do sistema muscular em peças humanas, com fotos, anexos, notas e PDF.",
   "start_url": "./index.html",
